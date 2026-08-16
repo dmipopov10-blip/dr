@@ -249,7 +249,7 @@
         }
 
         .gallery {
-
+            display: flex;
             position: relative;
 
             margin-top: 16px;
@@ -257,11 +257,39 @@
 
         .gallery-image {
 
-            width: 100%;
+            width: calc(100% - 30px);
 
             display: block;
 
             border-radius: 12px;
+        }
+
+        .gallery-arrow {
+            width: 15px;
+            background-color: #EA4C89;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+
+        }
+
+        .gallery-arrow:hover,
+        .gallery-arrow:focus {
+            background-color: #F082AC;
         }
 
         .gallery-controls {
@@ -448,7 +476,27 @@
 <div class="popup1__signature">Ника и Дима</div></div>`,
             },
             2: {
-                html: `<div class="popup2">В нашей жизни было очень много классных моментов и мы решили вспомнить их вместе с тобой 🤍</div>`,
+                html: `<div class="popup2">
+                    <div class="popup2__text">В нашей жизни было очень много классных моментов и мы решили вспомнить их вместе с тобой 🤍</div>
+
+                    <div class="gallery">
+
+                <button class="gallery-arrow left"
+                        onclick="prevImage()">
+                    ◄
+                </button>
+
+                <img id="galleryImage"
+                     class="gallery-image"
+                     src="./images/gallery1.jpg">
+
+                <button class="gallery-arrow right"
+                        onclick="nextImage()">
+                    ►
+                </button>
+
+            </div>
+                    </div>`,
             },
             3: {
                 html: `<div class="popup3">Мы решили запечатлеть твои лучшие качества здесь ❤️</div>`,
@@ -486,11 +534,9 @@
         };
 
         const galleryImages = [
-            "gallery1.jpg",
-            "gallery2.jpg",
-            "gallery3.jpg",
-            "gallery4.jpg"
-
+            "./images/collage.JPEG",
+            "./images/gift.png",
+            "./images/home.jpg",
         ];
 
         let currentImage = 0;
@@ -571,6 +617,14 @@
 
                     overlay.style.display =
                         "flex";
+
+                    if (button.dataset.popup === "2") {
+
+                        currentImage = 0;
+
+                        updateGallery();
+
+                    }
                 }
             );
 
