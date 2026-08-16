@@ -298,6 +298,58 @@
             width: 100%;
             height: 100%;
         }
+
+        .popup6 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup6__links {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .popup6__link-frank:link,
+        .popup6__link-frank:visited,
+        .popup6__link-frank:hover,
+        .popup6__link-frank:active,
+        .popup6__link-frank:focus {
+            color: #e174a7;
+        }
+
+        .popup6__link-set:link,
+        .popup6__link-set:visited,
+        .popup6__link-set:hover,
+        .popup6__link-set:active,
+        .popup6__link-set:focus {
+            color: #bb4980;
+        }
+
+        .popup6__link-republic:link,
+        .popup6__link-republic:visited,
+        .popup6__link-republic:hover,
+        .popup6__link-republic:active,
+        .popup6__link-republic:focus {
+            color: #e499bc;
+        }
+
+        .popup6__link-home,
+        .popup6__link-home:link,
+        .popup6__link-home:visited,
+        .popup6__link-home:hover,
+        .popup6__link-home:active,
+        .popup6__link-home:focus {
+            color: #e8589b;
+        }
+
+        .popup6__link-home:hover {
+            cursor: pointer;
+        }
+
+        .popup6__home-image {
+            display: none;
+        }
     </style>
 
 </head>
@@ -394,7 +446,7 @@
             4: {
                 html: `<div class="popup4">Желаем быть тебе такой же радостной , как на турецком рынке!
 
-Желаем быть такой же целеустремленной, как с автоматом и с игрушками!
+Желаем быть такой же целеустремленной, как с автоматом с игрушками!
 
 Желаем, чтобы тебе никогда не попадались кости в рыбе!
 
@@ -407,21 +459,28 @@
                 <img class="popup5__gift" src="./images/gift.png">`,
             },
             6: {
-                html: `<div class="popup6">Мы знаем как ты любишь некоторые места в Ереване, поэтому сделали для тебя телепорт к нам. Нажми на эти места и случится магия…✨
-
-
-Frank, Set, Площадь Республики, наш дом</div>`
+                html: `<div class="popup6"><div class="popup6__text">Мы знаем как ты любишь некоторые места в Ереване, поэтому сделали для тебя телепорт к нам. Нажми на эти места и случится магия…✨</div>
+<div class="popup6__links">
+    <a target="_blank" href="https://yandex.ru/maps?ll=44.512828,40.179271&panorama%5Bpoint%5D=44.512828,40.179271&panorama%5Bdirection%5D=238.015854,-8.178783&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1339271185_813072281_23_1713255597&si=e9eghhbv0en5tx8rpw0peuknx8" class="popup6__link-frank">
+        Frank
+    </a>
+    <a target="_blank" href="https://yandex.ru/maps?ll=44.508018,40.186236&panorama%5Bpoint%5D=44.508018,40.186236&panorama%5Bdirection%5D=357.065643,-10.851189&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1339242492_813018112_23_1713003570&si=e9eghhbv0en5tx8rpw0peuknx8" class="popup6__link-set">
+        Set
+    </a>
+    <a target="_blank" href="https://yandex.ru/maps?ll=44.512942,40.177625&panorama%5Bpoint%5D=44.512942,40.177625&panorama%5Bdirection%5D=73.682816,-8.116876&panorama%5Bspan%5D=90.000000,90.000000&panorama%5Bid%5D=1339271865_813085082_23_1713005838&si=e9eghhbv0en5tx8rpw0peuknx8" class="popup6__link-republic">
+        Площадь Республики
+    </a>
+    <a class="popup6__link-home" onclick="showImage(event)">Наш дом</a>
+    <img src="./images/home.jpg" class="popup6__home-image">
+    </div>
+</div>`
             },
         };
 
         const galleryImages = [
-
             "gallery1.jpg",
-
             "gallery2.jpg",
-
             "gallery3.jpg",
-
             "gallery4.jpg"
 
         ];
@@ -531,6 +590,15 @@ Frank, Set, Площадь Республики, наш дом</div>`
                 }
             }
         );
+
+        function showImage(event) {
+
+            event.preventDefault();
+
+            document.querySelector(
+                ".popup6__home-image"
+            ).style.display = "block";
+        }
 
     </script>
 
